@@ -1,3 +1,4 @@
+import 'package:Yuu18id/gachapage.dart';
 import 'package:flutter/material.dart';
 import 'package:Yuu18id/homepage.dart';
 import 'package:Yuu18id/learnflutterpage.dart';
@@ -32,7 +33,8 @@ class _RootPageState extends State<RootPage> {
   List<Widget> pages = const [
     HomePage(),
     ProfilePage(),
-    LearnFlutterPage()
+    LearnFlutterPage(),
+    GachaPage()
   ];
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,8 @@ class _RootPageState extends State<RootPage> {
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-          NavigationDestination(icon: Icon(Icons.book), label: 'Test')
+          NavigationDestination(icon: Icon(Icons.book), label: 'Test'),
+          NavigationDestination(icon: Icon(Icons.book), label: 'Gacha')
         ],
         onDestinationSelected: (int index){
           setState(() {

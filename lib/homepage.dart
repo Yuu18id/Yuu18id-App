@@ -37,9 +37,15 @@ class _HomePageState extends State<HomePage> {
     }
     return RichText(
           text: TextSpan(children: <TextSpan>[
-        TextSpan(text: hasil.toStringAsFixed(2).toString()),
-        TextSpan(text: '\n$kategori'),
-        TextSpan(text: '\n$saran')
+        TextSpan(text: hasil.toStringAsFixed(2).toString(), style: const TextStyle(
+            color: Colors.black
+        )),
+        TextSpan(text: '\n$kategori', style: const TextStyle(
+            color: Colors.black
+        )),
+        TextSpan(text: '\n$saran', style: const TextStyle(
+            color: Colors.black
+        )),
       ]));
   }
 
