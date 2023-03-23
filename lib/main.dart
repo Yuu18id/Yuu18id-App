@@ -1,5 +1,6 @@
 import 'package:Yuu18id/gachapage.dart';
 import 'package:Yuu18id/modulopage.dart';
+import 'package:Yuu18id/operatorspage.dart';
 import 'package:flutter/material.dart';
 import 'package:Yuu18id/homepage.dart';
 import 'package:Yuu18id/learnflutterpage.dart';
@@ -36,7 +37,8 @@ class _RootPageState extends State<RootPage> {
     ProfilePage(),
     LearnFlutterPage(),
     GachaPage(),
-    ModuloPage()
+    ModuloPage(),
+    OperatorPage()
   ];
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,8 @@ class _RootPageState extends State<RootPage> {
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           NavigationDestination(icon: Icon(Icons.book), label: 'Test'),
           NavigationDestination(icon: Icon(Icons.book), label: 'Gacha'),
-          NavigationDestination(icon: Icon(Icons.percent), label: 'Mod')
+          NavigationDestination(icon: Icon(Icons.percent), label: 'Mod'),
+          NavigationDestination(icon: Icon(Icons.shield), label: 'Operator')
         ],
         onDestinationSelected: (int index){
           setState(() {

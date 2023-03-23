@@ -16,10 +16,12 @@ class _ModuloPageState extends State<ModuloPage> {
     modu(int a, int b) {
         return RichText(text: TextSpan(
             children:[ TextSpan(
-                text: 'Hasil Bagi : ${a/b}\n'
+                text: 'Hasil Bagi : ${a/b}\n',
+                style: const TextStyle(color: Colors.black),
             ),
             TextSpan(
-                text: 'Sisa Bagi  : ${a%b}'
+                text: 'Sisa Bagi  : ${a%b}',
+                style: const TextStyle(color: Colors.black),
             )
         ]));
     }
