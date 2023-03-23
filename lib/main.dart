@@ -1,4 +1,5 @@
 import 'package:Yuu18id/gachapage.dart';
+import 'package:Yuu18id/modulopage.dart';
 import 'package:flutter/material.dart';
 import 'package:Yuu18id/homepage.dart';
 import 'package:Yuu18id/learnflutterpage.dart';
@@ -34,28 +35,24 @@ class _RootPageState extends State<RootPage> {
     HomePage(),
     ProfilePage(),
     LearnFlutterPage(),
-    GachaPage()
+    GachaPage(),
+    ModuloPage()
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         
-        title: const Text('BMI'),
+        title: const Text('Yuu18id App'),
       ),
       body: pages[currentPage],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          debugPrint('Floating Button');
-        },
-        child: const Icon(Icons.add),
-      ),
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           NavigationDestination(icon: Icon(Icons.book), label: 'Test'),
-          NavigationDestination(icon: Icon(Icons.book), label: 'Gacha')
+          NavigationDestination(icon: Icon(Icons.book), label: 'Gacha'),
+          NavigationDestination(icon: Icon(Icons.percent), label: 'Mod')
         ],
         onDestinationSelected: (int index){
           setState(() {

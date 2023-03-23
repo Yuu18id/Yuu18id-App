@@ -1,0 +1,9 @@
+{
+    "nama": "John Doe",
+    "umur": 25,
+    "alamat": {
+      "jalan": "Jl. Contoh",
+      "kota": "Jakarta"
+    }
+  }
+  

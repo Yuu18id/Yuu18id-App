@@ -36,69 +36,76 @@ class _HomePageState extends State<HomePage> {
           "Perbanyak Olahraga, Disertai dengan Diet dan Makanan Bergizi Ya!";
     }
     return RichText(
-          text: TextSpan(children: <TextSpan>[
-        TextSpan(text: hasil.toStringAsFixed(2).toString(), style: const TextStyle(
-            color: Colors.black
-        )),
-        TextSpan(text: '\n$kategori', style: const TextStyle(
-            color: Colors.black
-        )),
-        TextSpan(text: '\n$saran', style: const TextStyle(
-            color: Colors.black
-        )),
-      ]));
+        text: TextSpan(children: <TextSpan>[
+      TextSpan(
+          text: hasil.toStringAsFixed(2).toString(),
+          style: const TextStyle(color: Colors.black)),
+      TextSpan(
+          text: '\n$kategori', style: const TextStyle(color: Colors.black)),
+      TextSpan(text: '\n$saran', style: const TextStyle(color: Colors.black)),
+    ]));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        TextFormField(
-          decoration: const InputDecoration(
-              border: OutlineInputBorder(), labelText: 'Tinggi Badan'),
-          keyboardType: TextInputType.number,
-          inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.digitsOnly
-          ],
-          onChanged: (value) {
-            setState(() {
-              inputTinggi = int.tryParse(value) ?? 0;
-            });
-          },
-        ),
-        TextFormField(
-          decoration: const InputDecoration(
-              border: OutlineInputBorder(), labelText: 'Berat Badan'),
-          keyboardType: TextInputType.number,
-          inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.digitsOnly
-          ],
-          onChanged: (value) {
-            setState(() {
-              inputBerat = int.tryParse(value) ?? 0;
-            });
-          },
-        ),
-        ElevatedButton(
-          onPressed: () {
-            showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    content: bmiF(inputTinggi, inputBerat),
-                    actions: [
-                      ElevatedButton(
-                          child: const Text('Tutup'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          })
-                    ],
-                  );
+      body: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Container(
+              margin: const EdgeInsets.only(bottom: 10),
+                width: 300,
+            child: TextFormField(
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), labelText: 'Tinggi Badan'),
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ],
+              onChanged: (value) {
+                setState(() {
+                  inputTinggi = int.tryParse(value) ?? 0;
                 });
-          },
-          child: const Text('Tekan'),
-        )
-      ]),
+              },
+            ),
+          ),
+          Container(
+              margin: const EdgeInsets.only(bottom: 10),
+                width: 300,
+            child: TextFormField(
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), labelText: 'Berat Badan'),
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ],
+              onChanged: (value) {
+                setState(() {
+                  inputBerat = int.tryParse(value) ?? 0;
+                });
+              },
+            ),
+          ),
+        ]),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: bmiF(inputTinggi, inputBerat),
+                      actions: [
+                        ElevatedButton(
+                            child: const Text('Tutup'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            })
+                      ],
+                    );
+                  });
+            },
+        child: const Icon(Icons.calculate),
+      ),
     );
   }
 }
